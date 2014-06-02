@@ -1,0 +1,64 @@
+.zombie.ng-enter, .zombie.ng-leave, .view.ng-enter, .prev.ng-enter, .next.ng-enter, .view.ng-leave, .prev.ng-leave, .next.ng-leave  {
+   -moz-transition: all linear 1s;
+   -o-transition: all linear 1s;
+   -webkit-transition: all linear 1s;
+	transition: all linear 1s;
+}
+
+.zombie.ng-enter{
+	opacity: 0;
+	color: black;
+}
+
+.zombie, .zombie.ng-enter.ng-enter-active {
+	opacity: 1;
+	color: red;
+}
+
+.zombie.ng-leave {
+	opacity: 1;
+}
+
+.zombie.ng-leave.ng-leave-active {
+	opacity: 0;
+}
+
+.view, .prev, .next {
+	position: absolute;
+	width: 100%;
+}
+
+.view.ng-enter {
+	top: 100%;
+	opacity: 0;
+}
+
+.view.ng-enter.ng-enter-active, .view.ng-leave {
+	top: 0;
+	opacity: 1;
+}
+
+.view.ng-leave.ng-leave-active {
+	top: -100%;
+	opacity: 0;
+}
+
+.next.ng-leave {
+	left: 0;
+	opacity: 1;
+}
+
+.next.ng-leave.ng-leave-active {
+	left: 100%;
+	opacity: 0;
+}
+
+.prev.ng-leave {
+	left: 0;
+	opacity: 1;
+}
+
+.prev.ng-leave.ng-leave-active {
+	left: -100%;
+	opacity: 0;
+}

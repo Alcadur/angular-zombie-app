@@ -1,0 +1,36 @@
+<div class="row">
+			<div style="margin-left: 150px;">
+				<a data-ng-href="{{baseUrl}}" data-ng-mouseover="pref = false; next = false"><< Lista</a>
+			</div>
+			<div style="margin-left: 75px;">
+				<a data-ng-href="{{baseUrl}}{{prevZombieUrl}}" data-ng-click="prev = true; next = false;">< Poprzedni</a>
+				<a data-ng-href="{{baseUrl}}{{nextZombieUrl}}" data-ng-click="prev = false; next = true">Następny ></a>
+			</div>
+		</div>
+		<div data-ng-if="zombie.length == 0">
+			<div class="error">Zombie o ID: <span class="errorId">{{zombieId}}</span> nieistnieje</div>
+		</div>
+		<div data-ng-if="zombie.length > 0">
+			<div class="col-md-4" style="margin: 20px;">
+				<div class="row">
+					<div class="col-md-5">Nazwa:</div>
+					<div class="col-md-6">{{zombie[0].name}}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10">
+						Lubiane rzeczy:
+						<ul>
+							<li data-ng-repeat="like in zombie[0].like" data-ng-bind-html="like + ', '"></li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<div class="col-md-5">Bliżej nieokreślony tekst:</div>
+					<div class="col-md-6">{{zombie[0].desc}}</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<img data-ng-src="{{zombie[0].photo}}" />
+			</div>
+		</div>		
+</div>

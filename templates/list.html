@@ -1,0 +1,58 @@
+<div style="text-align: center;">
+				<div class="col-md-5" data-ng-controller="ZombieController">
+					<input type="text" data-ng-model="zombieName" placeholder="Imie dla zombie"/>
+					<div >
+						<div class="error">{{errorMessage}}</div>
+						<div>Imię nowego zombie: {{zombieName}}</div>
+						<button data-ng-click="addZombie(zombieName)">Dodaj zombie</button>
+					</div>
+						<table class="table table-striped">
+							<tr>
+								<th>NO.</th>
+								<th>Nazwa</th>
+							</tr>
+							<tr data-ng-repeat="zp in zombiePlace | filter:zombieName" class="zombie">
+								<td>{{$index+1}}</td>
+								<td><a data-ng-href="{{baseUrl}}/show/{{zp.id}}">{{zp.name}}</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-5" data-ng-controller="CementaryController">
+					<div >
+						<input type="text" data-ng-model="cemName" placeholder="Nazwa cmentarza"/>
+						<div>Podgląd nazwy: {{cemName}}</div>
+						<button data-ng-click="addCementary(cemName)">Dodaj cmentarz</button>
+					</div>
+					<div >
+						<table class="table table-striped">
+							<tr>
+								<th></th>
+								<th>ID</th>
+								<th>Nazwa</th>
+							</tr>
+							<tr data-ng-repeat="cem in cementary">
+								<td><input name="cementary" type="radio" data-ng-model="cemId" data-ng-click="setCemId(cem.id)" value="false"/></td>
+								<td>{{cem.id}}</td>
+								<td>{{cem.name}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div>
+				<table class="table table-striped">
+					<caption>Podsumowanie</caption>
+					<tr>
+						<th>Cmentarz/ Id cmentarza</th>
+						<th>Nazwa zombie/ id zombie</th>
+					</tr>
+					<tr data-ng-repeat-start="cem in cementary">
+						<td rowspan="{{(zombiePlace | cementaryFilter:cem.id).length+1}}}">{{cem.name}} / {{cem.id}}</td>
+						<td></td>
+					</tr>
+					<tr data-ng-repeat-end data-ng-repeat="zombie in zombiePlace | cementaryFilter:cem.id">
+						<td>{{zombie.name}} / {{zombie.id}}</td>
+					</tr>
+				</table>		
+			</div>
