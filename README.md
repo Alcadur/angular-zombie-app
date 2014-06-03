@@ -15,6 +15,7 @@ a następnie zmienić ją na adres pod którym dostępny jest index.html
 ***                    ***
 **************************
 Jeśli chcemy aby aplikacja działała bez serwera należy wykonać następujące kroki:
+
 1. Zawartość plików z katalogu templates skopiować do index.html odpowiednio między znaczniki:
 <script type="text/ng-template" id="list.html">...</script>
 <script type="text/ng-template" id="zobieDetails.html">...</script>
