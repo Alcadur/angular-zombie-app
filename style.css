@@ -1,0 +1,25 @@
+.error {
+	color: #f00000;
+	font-weight: bold;
+}
+
+.errorId {
+	font-style: italic;
+	font-size: large;
+	font-weight: bolder;
+	color: red;
+}
+
+img {
+	height: 250px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+ul li {
+	display: inline-block;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
