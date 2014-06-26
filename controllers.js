@@ -1,29 +1,29 @@
 ZombieApp.filter("cementaryFilter",function () {
 	return function(zombies,id){
-		var zombie = []		
+		var zombie = [];
 		angular.forEach(zombies,function(val,key){
 			if(val.cemId == id){
 				this.push(val);		
 			}
-		},zombie)
+		},zombie);
 		
 		return zombie;
 	}
 });
 ZombieApp.filter("zombieFilter",function () {
 	return function(zombies,id){
-		var zombie = []		
+		var zombie = [];
 		angular.forEach(zombies,function(val,key){
 			if(val.id == id){
 				this.push(val);		
 			}
-		},zombie)
+		},zombie);
 		
 		return zombie;
 	}
 });
 ZombieApp.controller("ZombieWordController",function($scope,GlobalValueService){
-	$scope.baseUrl = "http://localhost/angular/example/#"
+	$scope.baseUrl = "http://localhost/angular/example/#";
 	
 	$scope.zombiePlace = GlobalValueService.zombies;
 	$scope.cementary = [
@@ -49,11 +49,11 @@ ZombieApp.controller("ZombieController",function($scope,GlobalValueService,$rout
 	$scope.prevZombieUrl = "/show/"+((parseInt($routeParams.zombieId)-1)<0?GlobalValueService.zombies.length-1:parseInt($routeParams.zombieId)-1)
 	$scope.addZombie = function(name){
 		if(GlobalValueService.cementaryId < 0){
-			$scope.errorMessage = "Zombie nie może być bezdomny!! Wybież cmentarz."
+			$scope.errorMessage = "Zombie nie może być bezdomny!! Wybież cmentarz.";
 			return false;
 		}
 		if(!name){
-			$scope.errorMessage = "Jak zmarły miał na imię??"
+			$scope.errorMessage = "Jak zmarły miał na imię??";
 			return false;
 		}
 		
